@@ -1,0 +1,13 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr app-users *ngFor="let user of users" [users]="user"></tr>
+    </tbody>
+</table>
