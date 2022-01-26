@@ -9,6 +9,7 @@ import { ArenaComponent } from './components/arena/arena.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { UsersComponent } from './components/users/users.component';
 import { TableComponent } from './components/table/table.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TableComponent } from './components/table/table.component';
     ArenaComponent,
     HeroComponent,
     UsersComponent,
-    TableComponent
+    TableComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

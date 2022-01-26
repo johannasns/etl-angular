@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { User } from '../models/users';
+import { User } from 'src/app/models/users';
 
 @Component({
   selector: '[app-users]', // parentesi quadre per farlo diventare attributo

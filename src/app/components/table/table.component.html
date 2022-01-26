@@ -8,6 +8,6 @@
         </tr>
     </thead>
     <tbody>
-        <tr app-users *ngFor="let user of users" [users]="user"></tr>
+        <tr app-users *ngFor="let user of users" [users]="user" (delete)="handleDelete()"></tr>
     </tbody>
 </table>

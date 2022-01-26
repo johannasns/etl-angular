@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { hero1 } from '../models/hero';
-import { hero2 } from '../models/hero';
+import { hero1 } from 'src/app/models/hero';
+import { hero2 } from 'src/app/models/hero';
 
 @Component({
   selector: 'app-arena',

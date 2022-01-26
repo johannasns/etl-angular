@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/users';
+import { User } from 'src/app/models/users';
 
 @Component({
   selector: 'app-table',
@@ -14,7 +14,7 @@ public user3: User = new User("Tizio", "Caio", "tiziocaio@gmail.com")
 
 public users = [this.user1, this.user2, this.user3]
 
-public handleDelete():void {
+public handleDelete() {
 
    this.users.splice(0, 1);
 }
