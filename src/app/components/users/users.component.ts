@@ -8,14 +8,17 @@ import { User } from 'src/app/models/users';
 })
 export class UsersComponent implements OnInit {
 
-@Input() users !: User; 
-@Output() public delete: EventEmitter<User> = new EventEmitter();
+@Input() public user!: User;
 
-public HandleDelete():void {
-  this.delete.emit(this.users)
-}
+  @Output() public delete: EventEmitter<User> = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+    //
+  }
+
+  public handleDeleteClick(): void {
+    this.delete.emit(this.user);
+  }
 
   ngOnInit(): void {
   }

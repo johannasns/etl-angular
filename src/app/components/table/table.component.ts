@@ -8,18 +8,20 @@ import { User } from 'src/app/models/users';
 })
 export class TableComponent implements OnInit {
 
-public user1: User = new User("Tizio", "Caio", "tiziocaio@gmail.com")
-public user2: User = new User("Tizio", "Caio", "tiziocaio@gmail.com")
-public user3: User = new User("Tizio", "Caio", "tiziocaio@gmail.com")
-
-public users = [this.user1, this.user2, this.user3]
-
-public handleDelete() {
-
-   this.users.splice(0, 1);
-}
+public users: User[] = [
+    new User(1, 'fiorellino@umbertosmaila.it', 'Umberto Smaila'),
+    new User(2, 'libidine@jerrycala.it', 'Jerry Calà'),
+    new User(3, 'bagaglino@pippofranco.it', 'Pippo Franco')
+  ];
 
   constructor() { }
+
+public handleDelete(user: User): void {
+    this.users.splice(
+      this.users.indexOf(user),
+      1
+    );
+  }
 
   ngOnInit(): void {
   }

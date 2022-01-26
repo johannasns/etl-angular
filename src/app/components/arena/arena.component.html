@@ -1,4 +1,2 @@
-<app-hero [hero1]></app-hero>
-<app-hero [hero2]></app-hero>
-<button>Attacca</button>
-<button>Attacca</button>
+<app-hero [hero]="hero1" (attack)="handleAttack($event)" *ngIf="hero1.hp > 0"></app-hero>
+<app-hero [hero]="hero2" (attack)="handleAttack($event)"></app-hero>

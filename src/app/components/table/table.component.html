@@ -1,13 +1,13 @@
 <table>
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Surname</th>
+            <th>Id</th>
             <th>Email</th>
+            <th>Name</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr app-users *ngFor="let user of users" [users]="user" (delete)="handleDelete()"></tr>
+        <tr app-users *ngFor="let user of users" [user]="user" (delete)="handleDelete($event)"></tr>
     </tbody>
 </table>

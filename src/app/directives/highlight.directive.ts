@@ -5,24 +5,32 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 export class HighlightDirective {
 
-  private prev!: string;
-  @Input() public color!: string; // unica proprietà rilevante per determinare lo stato della direttiva
-
-  constructor(private _el: ElementRef<HTMLElement>) { 
-     console.log("Ok");
-    }
+  private _prev!: string;
   
-    
-  @HostListener('mouseover') 
-  public handleMouseOver(){
-      console.log("Mouse over")
-      this.prev = this._el.nativeElement.style.backgroundColor;
-      this._el.nativeElement.style.backgroundColor = this.color;
+  // Tra parentesi tonde, l'alias della proprietà in Input
+  // La proprietà "color" si chiamerà, all'esterno di questa classe,
+  // come la stringa indicata tra le parentesi tonde del decorator
+  //
+  // <h1 appHighlight="orange">
+  //   invece di
+  // <h1 appHighlight color="orange">
+
+  @Input('appHighlight') public color!: string;
+
+  constructor(private _el: ElementRef<HTMLElement>) {
+    console.log('highlight directive');
+  }
+
+  @HostListener('mouseover')
+  public handleMouseOver(): void {
+    console.log('mouse over!!');
+    this._prev = this._el.nativeElement.style.backgroundColor;
+    this._el.nativeElement.style.backgroundColor = this.color;
   }
 
   @HostListener('mouseleave')
-  public handleMouseLeave() {
-    this._el.nativeElement.style.backgroundColor = this.prev;
+  public handleMouseOut(): void {
+    this._el.nativeElement.style.backgroundColor = this._prev;
   }
-}
 
+}

@@ -1,4 +1,7 @@
-<p> {{ hero1.name }}</p>
-<p> {{ hero1.hp }}</p>
-<p> {{ hero1.damage }}</p>
+<div>
+    <p>{{ hero.name }}</p>
+    <img [src]="hero.pic">
+    <p>Pv: {{ hero.hp }}</p>
+    <button (click)="handleClick()">Attack</button>
+</div>
 
