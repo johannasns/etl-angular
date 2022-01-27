@@ -10,6 +10,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { UsersComponent } from './components/users/users.component';
 import { TableComponent } from './components/table/table.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,15 @@ import { HighlightDirective } from './directives/highlight.directive';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    // {
+    // provide: UserService,  (token)
+    // useClass: UserService  (dipendenza)
+    // } 
+    // poiché il nome della dipendenza
+    // coincide con il nome della classe, si può semplificare cosi:
+    // UserService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

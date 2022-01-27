@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/users';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-table',
@@ -14,13 +15,10 @@ public users: User[] = [
     new User(3, 'bagaglino@pippofranco.it', 'Pippo Franco')
   ];
 
-  constructor() { }
+  constructor(private _userService: UserService) { }
 
 public handleDelete(user: User): void {
-    this.users.splice(
-      this.users.indexOf(user),
-      1
-    );
+    this.users.splice(this.users.indexOf(user),1);
   }
 
   ngOnInit(): void {
