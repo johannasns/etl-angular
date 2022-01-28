@@ -10,10 +10,10 @@ import { UserService } from 'src/app/services/user.service';
 export class TableComponent implements OnInit {
 
 public users: User[] = [
-    new User(1, 'fiorellino@umbertosmaila.it', 'Umberto Smaila'),
-    new User(2, 'libidine@jerrycala.it', 'Jerry Calà'),
-    new User(3, 'bagaglino@pippofranco.it', 'Pippo Franco')
-  ];
+  //   new User(1, 'fiorellino@umbertosmaila.it', 'Umberto Smaila'),
+  //   new User(2, 'libidine@jerrycala.it', 'Jerry Calà'),
+  //   new User(3, 'bagaglino@pippofranco.it', 'Pippo Franco')
+   ];
 
   constructor(private _userService: UserService) { }
 
@@ -22,6 +22,7 @@ public handleDelete(user: User): void {
   }
 
   ngOnInit(): void {
+    this._userService.list().subscribe(users => this.users = users); 
   }
 
 }

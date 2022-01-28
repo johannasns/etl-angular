@@ -10,7 +10,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { UsersComponent } from './components/users/users.component';
 import { TableComponent } from './components/table/table.component';
 import { HighlightDirective } from './directives/highlight.directive';
-import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { UserService } from './services/user.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     // {

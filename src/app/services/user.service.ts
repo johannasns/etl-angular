@@ -1,4 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+
+import { map } from 'rxjs/operators';
+import { User } from '../models/users';
+import { IUser } from '../interfaces/user.interface';
 
 // l'oggetto sul decorator esiste da Angular 6 
 // e serve ad applicare i meccanismi di Tree Shaking sui servizi
@@ -7,7 +12,13 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  constructor() {
+  constructor(private _http: HttpClient) {
     console.log('user service creato')
-   }
+  }
+
+   public list() {
+    return this._http.get<IUser[]>('https://jsonplaceholder.typicode.com/users').pipe(
+      map(users => users.map(user => new User(user.id, user.email, user.name)))
+    );
+  }
 }
