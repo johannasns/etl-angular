@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { environment } from 'src/environments/environment';
 
 import { map } from 'rxjs/operators';
 import { User } from '../models/users';
@@ -17,7 +18,7 @@ export class UserService {
   }
 
    public list() {
-    return this._http.get<IUser[]>('https://jsonplaceholder.typicode.com/users').pipe(
+    return this._http.get<IUser[]>(`${environment.api.url}/users`).pipe(
       map(users => users.map(user => new User(user.id, user.email, user.name)))
     );
   }
