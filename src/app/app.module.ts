@@ -11,6 +11,8 @@ import { UsersComponent } from './components/users/users.component';
 import { TableComponent } from './components/table/table.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     HeroComponent,
     UsersComponent,
     TableComponent,
-    HighlightDirective
+    HighlightDirective,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
