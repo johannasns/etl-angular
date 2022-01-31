@@ -8,7 +8,7 @@ import { Hero } from 'src/app/models/hero';
 })
 export class ArenaComponent implements OnInit {
 
-  public hero1: Hero = new Hero('Umbero Smaila', 100, 15);
+  public hero1: Hero = new Hero('Umberto Smaila', 100, 15);
   public hero2: Hero = new Hero('Marco Columbro', 100, 15);
 
   constructor() { }
