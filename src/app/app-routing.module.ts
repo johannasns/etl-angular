@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArenaComponent } from './components/arena/arena.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { TableComponent } from './components/table/table.component';
+import { UserComponent } from './components/user/user.component';
 
 const routes: Routes = [ {
   component: ArenaComponent,
@@ -14,6 +16,12 @@ const routes: Routes = [ {
 },{
   component: HomeComponent,
   path: ''
+},{
+    component: LoginComponent,
+    path: 'login'
+},{
+  component: UserComponent,
+  path: 'users/:id'
 },{
   component: NotFoundComponent,
   path: '**'
