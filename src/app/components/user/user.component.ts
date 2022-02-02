@@ -10,17 +10,16 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  
+
   public user!: User;
-  constructor(private _route: ActivatedRoute) { }
+
+  constructor(private _route: ActivatedRoute, private _userService: UserService) { }
 
   ngOnInit(): void {
-    this._route.paramMap.pipe(
+    this._route.paramMap.pipe( // pipe serve per applicare gli operatori di rxjs in cascata
       map(p => p.get('id') as string),
       switchMap(id => this._userService.get(+id))
-    ).subscribe(user => this.user = user)
+    ).subscribe(user => this.user = user);
   }
-  // quando il risultato della funzione è avvolto in un Observable non uso map
-  // ma switch map
-  // mi deregistra (unsubscribe) dallo stream precedente e mi risparmia spazio
+
 }

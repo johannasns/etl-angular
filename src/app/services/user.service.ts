@@ -1,36 +1,42 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-import { map } from 'rxjs/operators';
-import { User } from '../models/users';
+// Interfaces
 import { IUser } from '../interfaces/user.interface';
-import { Observable } from 'rxjs';
 
-// l'oggetto sul decorator esiste da Angular 6 
-// e serve ad applicare i meccanismi di Tree Shaking sui servizi
+// Models
+import { User } from '../models/users';
+
+// Rxjs
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+// L'oggetto sul decorator @Injectable
+// esiste da Angular 6 e serve ad applicare i
+// meccanismi di Tree Shaking sui servizi
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private _objectToModel() {
-    
+  private _objToModel(obj: IUser): User {
+    return new User(obj.id, obj.email, obj.name);
   }
 
   constructor(private _http: HttpClient) {
-    console.log('user service creato')
+    console.log('user service creato!!');
   }
-   
-   public get(id: number):Observable<User> {
-    return this._http.get<IUser>(`${environment.api.url}/users/$(id)`).pipe(
-      map(users => users.map(user => new User(user.id, user.email, user.name)))
-     )
-   }
 
-   public list():Observable<User[]> {
+  public get(id: number) {
+    return this._http.get<IUser>(`${environment.api.url}/users/${id}`).pipe(
+      map(user => this._objToModel(user))
+    );
+  }
+
+  public list(): Observable<User[]> {
     return this._http.get<IUser[]>(`${environment.api.url}/users`).pipe(
-      map(users => users.map(user => new User(user.id, user.email, user.name)))
+      map(users => users.map(user => this._objToModel(user)))
     );
   }
 }

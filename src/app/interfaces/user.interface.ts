@@ -6,3 +6,6 @@ export interface IUser {
     username: string;
     website: string;
 }
+
+// Prototipizzazione di un oggetto in cui vado a dichiarare le proprietà e il loro tipo
+// e ci permette di definire anche l'implementazione dei metodi

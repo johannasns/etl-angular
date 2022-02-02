@@ -1,0 +1,17 @@
+-- Funzioni di validazione --
+
+1. Funzione esterna che ha come compito quello di raccogliere dati utili ai fini della
+validazione e di restituire la funzione di validazione interna. 
+2. Funzione interna che è quella che effettivamente convalida il campo in input e che
+ha l'accesso alla sua istanza.
+Le regole di validazione possono essere applicate sia al singolo input che al gruppo
+intero, nella sua firma si inserisce un abstract control.
+
+Le direttive di validazione vengono introdotto all'interno delle DI, su cui possiamo 
+creare una istanza che si inietta su due token diversi. Normalmente crea due istanze
+per i due token, ma per dirgli di usare la stessa istanza su entrambi, 
+gli diciamo 'useExisting', e quando su multipli token coincide la stessa istanza
+si parla di 'multi provider'. 
+
+Per casa trovare un modo per passare dall'esterno le letterali
+dritta: guardare direttiva highlight

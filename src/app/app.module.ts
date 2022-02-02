@@ -16,6 +16,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { ForbiddenDirective } from './directives/forbidden.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NotFoundComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    ForbiddenDirective
   ],
   imports: [
     BrowserModule,
