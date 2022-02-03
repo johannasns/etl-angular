@@ -8,11 +8,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class RdfLoginComponent implements OnInit {
   
-  public form FormGroup = new FormGroup({
-      email = new FormControl("") // prima prende lo stato iniziale
-                               // poi si prende un array validators sincrono (opzionale)
-                               // e poi ancora un array validators asincroni (opzionale)
-  })
 
   constructor() { }
 
