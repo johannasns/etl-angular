@@ -15,3 +15,12 @@ si parla di 'multi provider'.
 
 Per casa trovare un modo per passare dall'esterno le letterali
 dritta: guardare direttiva highlight
+
+-- Reactive driven form --
+
+
+1. Gruppo: il primo parametro è un oggetto le cui chiavi sono nomi dei campi e i valori sono un'istanza formgroup
+   oppure fromcontrol. 
+   Il secondo parametro è un array di validatori sincroni.
+   Il terzo parametro è un array di validatori asincroni (restituiscono il risultato in una promise o observable)
+   e che utilizziamo quando dobbiamo interrogare un backend. 

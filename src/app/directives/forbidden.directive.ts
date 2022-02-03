@@ -15,13 +15,13 @@ export class ForbiddenDirective implements Validator {
 
   constructor() { }
 
-@Input() private _invalidWords!: string;
+@Input('appForbidden') public invalidWords!: string;
 
   public validate(control: AbstractControl): ValidationErrors | null {
       // const fnInterna = forbiddenValidator('boh', 'bah');
       // return fnInterna(control);
 
-      return forbiddenValidator(this._invalidWords)(control);
+      return forbiddenValidator(this.invalidWords)(control);
   }
 
 }

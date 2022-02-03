@@ -2,17 +2,18 @@
 <form (ngSubmit)="handleSubmit(f)" #f="ngForm">
     <div class="form-group">
         <label for="">email</label>
-        <input type="email" name="email" [(ngModel)]="email" #e="ngModel" required email appForbidden="bah">
+        <input type="email" name="email" [(ngModel)]="email" #e="ngModel" required email appForbidden="ciao@gmail.com">
         <!-- (change)="email = $event.target.value" [value]="email" -->
     </div>
-    <div *ngIf="e.touched && e.invalid" class="alert alert-danger" role="alert">
+    <div *ngIf="e.touched || f.submitted && e.invalid" class="alert alert-danger" role="alert">
         <p *ngIf="e.hasError('required')">Campo obbligatorio</p>
         <p *ngIf="e.hasError('email')">Indirizzo email non valido</p>
+        <p *ngIf="e.hasError('forbidden')">Indirizzo email non valido</p>
     </div>
     <div class="form-group">
         <label for="">password</label>
         <input type="password" name="password" [(ngModel)]="password" #p="ngModel" required minlength="8"
-        appForbidden="boh">
+        appForbidden="ciao">
     </div>
     <div class="row">
         <div class="col-lg-12">

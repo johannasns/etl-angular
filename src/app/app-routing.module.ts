@@ -4,6 +4,7 @@ import { ArenaComponent } from './components/arena/arena.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RdfLoginComponent } from './components/rdf-login/rdf-login.component';
 import { TableComponent } from './components/table/table.component';
 import { UserComponent } from './components/user/user.component';
 
@@ -19,6 +20,9 @@ const routes: Routes = [ {
 },{
     component: LoginComponent,
     path: 'login'
+},{
+    component: RdfLoginComponent,
+    path: 'anotherlogin'
 },{
   component: UserComponent,
   path: 'users/:id'

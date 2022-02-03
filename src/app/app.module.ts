@@ -15,8 +15,9 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForbiddenDirective } from './directives/forbidden.directive';
+import { RdfLoginComponent } from './components/rdf-login/rdf-login.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +33,15 @@ import { ForbiddenDirective } from './directives/forbidden.directive';
     NotFoundComponent,
     UserComponent,
     LoginComponent,
-    ForbiddenDirective
+    ForbiddenDirective,
+    RdfLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     // {
