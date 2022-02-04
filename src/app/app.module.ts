@@ -10,7 +10,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { UsersComponent } from './components/users/users.component';
 import { TableComponent } from './components/table/table.component';
 import { HighlightDirective } from './directives/highlight.directive';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UserComponent } from './components/user/user.component';
@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForbiddenDirective } from './directives/forbidden.directive';
 import { RdfLoginComponent } from './components/rdf-login/rdf-login.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,11 @@ import { RdfLoginComponent } from './components/rdf-login/rdf-login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [
+  providers: [ {
+    multi: true,
+    provide: HTTP_INTERCEPTORS,
+    useExisting: TokenInterceptor
+  }
     // {
     // provide: UserService,  (token)
     // useClass: UserService  (dipendenza)
